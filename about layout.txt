@@ -1,0 +1,5 @@
+1.ListView paddingTop 10di但是滑动时不会切割，还会paddingTop顶部滑动
+{
+android:clipToPadding="false"
+android:paddingTop="10dip"
+}
