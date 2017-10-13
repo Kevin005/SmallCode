@@ -1,0 +1,26 @@
+categoryListview.setOnScrollListener(new OnScrollListener() {
+
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                switch (scrollState) {
+                    case OnScrollListener.SCROLL_STATE_IDLE:
+                        if (categoryListview.getLastVisiblePosition() == (categoryListview.getCount() - 1) && !isSearch) {
+                            // if (currentPage < totalPage) {
+                            if (!isLastPage && pos != 5) {
+                                if (currentCateTwo == 0) {
+                                    MyApp.getTcpService().getSearchMedia(++currentPage, "", DemandMedia.MEDIA_TYPE[pos], "%", 10);
+                                } else {
+                                    MyApp.getTcpService()
+                                            .getSearchMedia(++currentPage, "", DemandMedia.MEDIA_TYPE[pos], cateList.get(currentCateTwo), 10);
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
